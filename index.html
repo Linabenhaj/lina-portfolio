@@ -52,8 +52,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .typed-hero{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-style:italic;color:var(--rose);position:relative;z-index:1;min-height:2.2rem;margin-bottom:2.5rem}
 .typed-cursor{border-right:1.5px solid var(--rose);padding-right:2px;animation:blink 0.8s infinite}
 @keyframes blink{50%{border-color:transparent}}
-.hero-chips{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.85rem;position:relative;z-index:1}
-.hero-chips span{padding:0.32rem 0.9rem;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;background:rgba(27,42,71,0.05);border:1px solid var(--border);color:var(--text-mid);font-family:'JetBrains Mono',monospace}
 .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.72rem 1.9rem;border-radius:4px;font-size:0.8rem;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.25s;border:1.5px solid transparent;font-family:'DM Sans',sans-serif}
 .btn-navy{background:var(--navy);color:var(--cream);border-color:var(--navy)}
@@ -66,7 +64,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 
 /* ABOUT — navy */
 #about{background:var(--navy);color:var(--cream);padding:7rem 3rem}
-.ab-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;isolation:isolate}
+.ab-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
 .ey{font-size:0.72rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--rose);margin-bottom:1.5rem;font-weight:500}
 .sec-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,4rem);font-weight:300;line-height:1.05;margin-bottom:2rem;color:var(--navy)}
 #about .sec-h2{color:var(--cream)}
@@ -81,17 +79,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .st-ic{width:34px;height:34px;border-radius:50%;background:rgba(212,134,154,0.14);display:flex;align-items:center;justify-content:center;margin:0 auto 0.7rem;color:var(--rose)}
 .st-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold-light);line-height:1}
 .st-l{font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(253,250,246,0.45);margin-top:0.2rem}
-.photo-frame{border-radius:62% 38% 55% 45%/45% 55% 45% 55%;overflow:hidden;aspect-ratio:3/4;background:rgba(253,250,246,0.06);display:flex;align-items:center;justify-content:center;border:1px solid rgba(253,250,246,0.1);transition:border-radius 1.2s ease}
+.photo-frame{position:relative;border-radius:62% 38% 55% 45%/45% 55% 45% 55%;overflow:hidden;aspect-ratio:3/4;background:rgba(253,250,246,0.06);display:flex;align-items:center;justify-content:center;border:1px solid rgba(253,250,246,0.1);transition:border-radius 1.2s ease}
+.photo-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .photo-ph{display:flex;flex-direction:column;align-items:center;gap:0.75rem;color:rgba(253,250,246,0.22)}
 .photo-ph span{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase}
 
 /* SKILLS */
 #skills{background:var(--cream);padding:7rem 3rem}
-.container{max-width:1200px;margin:0 auto;position:relative;isolation:isolate}
-
-/* GHOST-TEXT SECTION BACKDROPS */
-.ghost-text{position:absolute;top:-1.4rem;left:50%;transform:translateX(-50%);z-index:-1;font-family:'DM Sans',sans-serif;font-weight:800;font-size:clamp(4.5rem,13vw,10rem);color:rgba(27,42,71,0.035);-webkit-text-stroke:1px rgba(27,42,71,0.07);letter-spacing:-0.02em;white-space:nowrap;pointer-events:none;user-select:none;line-height:1}
-.ghost-text.on-dark{color:rgba(253,250,246,0.04);-webkit-text-stroke:1px rgba(253,250,246,0.08)}
+.container{max-width:1200px;margin:0 auto}
 .sec-sub{font-size:0.93rem;color:var(--text-mid);line-height:1.8;max-width:560px;margin-bottom:3.5rem}
 .sk-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem}
 .sk-col{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:all 0.25s}
@@ -241,7 +236,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 /* CONTACT */
 #contact{background:var(--cream);padding:8rem 3rem;text-align:center;position:relative;overflow:hidden}
 .co-blob{position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(212,134,154,0.18),transparent 70%);bottom:-80px;right:-80px;pointer-events:none}
-.co-inner{max-width:680px;margin:0 auto;position:relative;z-index:1;isolation:isolate}
+.co-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
 #contact .sec-h2{font-size:clamp(2.5rem,5.5vw,5.5rem);color:var(--navy)}
 #contact .sec-h2 em{color:var(--rose)}
 .co-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:3rem 0}
@@ -310,13 +305,12 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 .hero-name{animation:heroBlurUp 1s cubic-bezier(.19,1,.22,1) .15s both}
 .hero-divider{animation:heroUp .8s cubic-bezier(.19,1,.22,1) .35s both}
 .typed-hero{animation:heroUp .8s cubic-bezier(.19,1,.22,1) .45s both}
-.hero-chips{animation:heroUp .8s cubic-bezier(.19,1,.22,1) .5s both}
-.hero-cta{animation:heroUp .8s cubic-bezier(.19,1,.22,1) .6s both}
+.hero-cta{animation:heroUp .8s cubic-bezier(.19,1,.22,1) .55s both}
 .hero-scroll{animation:heroFade .8s ease .9s both,float 2.5s ease-in-out infinite 1.8s}
 
 @media (prefers-reduced-motion: reduce){
   #cursorDot,#cursorRing{display:none!important}
-  .open-badge,.hero-name,.hero-divider,.typed-hero,.hero-chips,.hero-cta,.hero-scroll{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
+  .open-badge,.hero-name,.hero-divider,.typed-hero,.hero-cta,.hero-scroll{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
   .split-word{transition:none!important;transform:none!important;opacity:1!important}
   .reveal{transition:none!important;opacity:1!important;transform:none!important}
   .hero-blob,.hero-blob2,.star,.marquee-track{animation:none!important}
@@ -392,7 +386,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
     <span class="hero-name-sub">Benhaj</span>
   </div>
   <div class="typed-hero"><span id="typedEl" class="typed-cursor"></span></div>
-  <div class="hero-chips"><span>C# / .NET</span><span>ASP.NET Core</span><span>Angular</span><span>Agile / Scrum</span></div>
   <div class="hero-cta">
     <a href="#projects" class="btn btn-navy" data-i18n="h_cta1"></a>
     <a href="Lina-Benhaj-CV.pdf" download class="btn btn-cv"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg><span data-i18n="h_cv"></span></a>
@@ -408,7 +401,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 
 <section id="about">
   <div class="ab-grid">
-    <span class="ghost-text on-dark">ABOUT</span>
     <div class="reveal">
       <div class="ey" data-i18n="a_ey"></div>
       <h2 class="sec-h2"><span data-i18n="a_h2a"></span><br><em data-i18n="a_h2b"></em></h2>
@@ -429,18 +421,19 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         <div class="st-box"><div class="st-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div class="st-n">2</div><div class="st-l" data-i18n="s_awards"></div></div>
       </div>
       <div class="photo-frame">
+        <img src="images/lina-profile.jpg" alt="Lina Benhaj" onerror="this.style.display='none'"/>
         <div class="photo-ph">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span data-i18n="a_photo"></span>
         </div>
       </div>
+      <a href="Lina-Benhaj-CV.pdf" download class="btn btn-cv" style="width:100%;justify-content:center;margin-top:1.25rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg><span data-i18n="h_cv"></span></a>
     </div>
   </div>
 </section>
 
 <section id="skills">
   <div class="container">
-    <span class="ghost-text">SKILLS</span>
     <div class="ey reveal" data-i18n="sk_ey"></div>
     <h2 class="sec-h2 reveal" style="color:var(--navy)"><span data-i18n="sk_h2a"></span> <em style="font-style:italic;color:var(--rose)" data-i18n="sk_h2b"></em></h2>
     <p class="sec-sub reveal" data-i18n="sk_sub"></p>
@@ -547,7 +540,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 
 <section id="experience">
   <div class="container">
-    <span class="ghost-text">WORK</span>
     <div class="ey reveal" data-i18n="e_ey"></div>
     <h2 class="sec-h2 reveal" style="color:var(--navy)"><span data-i18n="e_h2a"></span> <em style="font-style:italic;color:var(--rose)" data-i18n="e_h2b"></em></h2>
     <p class="sec-sub reveal" data-i18n="e_sub"></p>
@@ -602,7 +594,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 
 <section id="projects">
   <div class="container">
-    <span class="ghost-text on-dark">PROJECTS</span>
     <div class="ey reveal" data-i18n="p_ey"></div>
     <h2 class="sec-h2 reveal"><span data-i18n="p_h2a"></span> <em data-i18n="p_h2b"></em></h2>
     <p class="sec-sub reveal" data-i18n="p_sub"></p>
@@ -842,7 +833,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 
 <section id="education">
   <div class="container">
-    <span class="ghost-text">STUDY</span>
     <div class="ey reveal" data-i18n="ed_ey"></div>
     <h2 class="sec-h2 reveal" style="color:var(--navy)"><span data-i18n="ed_h2a"></span> <em style="font-style:italic;color:var(--rose)" data-i18n="ed_h2b"></em></h2>
     <div class="edu-grid">
@@ -884,7 +874,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 
 <section id="awards">
   <div class="container">
-    <span class="ghost-text">AWARDS</span>
     <div class="ey reveal" data-i18n="aw_ey"></div>
     <h2 class="sec-h2 reveal" style="color:var(--navy)"><span data-i18n="aw_h2a"></span> <em style="font-style:italic;color:var(--rose)" data-i18n="aw_h2b"></em></h2>
     <div>
@@ -896,7 +885,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 
 <section id="testimonials">
   <div class="container">
-    <span class="ghost-text on-dark">SAY</span>
     <div class="ey reveal" data-i18n="te_ey"></div>
     <h2 class="sec-h2 reveal"><span data-i18n="te_h2a"></span> <em data-i18n="te_h2b"></em></h2>
     <div class="te-grid">
@@ -909,7 +897,6 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 <section id="contact">
   <div class="co-blob"></div>
   <div class="co-inner">
-    <span class="ghost-text">TALK</span>
     <div class="ey reveal" style="display:inline-block" data-i18n="co_ey"></div>
     <h2 class="sec-h2 reveal"><span data-i18n="co_h2a"></span><br><em data-i18n="co_h2b"></em></h2>
     <p class="sec-sub reveal" style="margin:0 auto 0" data-i18n="co_sub"></p>
