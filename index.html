@@ -189,6 +189,9 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:300;display:flex;align-items:
 .pj-card.filtered-out{display:none}
 .pj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .pj-card{border:1px solid rgba(253,250,246,0.1);border-radius:14px;overflow:hidden;transition:all 0.3s;background:rgba(253,250,246,0.04)}
+.pj-card.featured{border-top:3px solid var(--rose);background:rgba(253,250,246,0.06)}
+.pj-card.featured .pj-title{font-size:1.42rem}
+.pj-card.featured .pj-ey{color:var(--rose)}
 .pj-card:hover{border-color:rgba(212,134,154,0.5);background:rgba(253,250,246,0.07);transform:translateY(-4px)}
 .pj-card.big{grid-column:1/3}
 .pj-vis{aspect-ratio:16/9;height:auto;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
@@ -658,7 +661,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
       </div>
 
       <!-- GVA Apr 2025 -->
-      <div class="pj-card reveal" id="proj-gva" data-cat="journalism" style="order:8">
+      <div class="pj-card reveal" id="proj-gva" data-cat="journalism" style="order:3">
         <div class="pj-vis">
           <div class="carousel" id="car-gva" data-cur="0">
             <div class="carousel-track">
@@ -696,7 +699,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         </div>
       </div>
 
-      <div class="pj-card reveal rd2" id="proj-nooby" data-cat="software" style="order:3">
+      <div class="pj-card reveal rd2" id="proj-nooby" data-cat="software" style="order:2">
         <div class="pj-vis">
           <div class="carousel" id="car-nooby" data-cur="0">
             <div class="carousel-track">
@@ -734,7 +737,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         </div>
       </div>
 
-      <div class="pj-card big no-tilt reveal rd1" id="proj-belgo" data-cat="journalism" style="order:2">
+      <div class="pj-card featured reveal rd1" id="proj-belgo" data-cat="journalism" style="order:4">
         <div class="pj-vis">
           <div class="carousel" id="car-belgo" data-cur="0">
             <div class="carousel-track">
@@ -754,7 +757,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         </div>
       </div>
 
-      <div class="pj-card reveal rd2" id="proj-redhorse" data-cat="journalism" style="order:7">
+      <div class="pj-card reveal rd2" id="proj-redhorse" data-cat="journalism" style="order:6">
         <div class="pj-vis">
           <div class="carousel" id="car-redhorse" data-cur="0">
             <div class="carousel-track">
@@ -774,7 +777,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
       </div>
 
       <!-- ── DOCUMENTAIRES ── -->
-      <div class="pj-card big no-tilt reveal rd1" data-cat="doc" style="order:6">
+      <div class="pj-card featured reveal rd1" data-cat="doc" style="order:9">
         <div class="pj-vis" style="background:linear-gradient(135deg,#C4705A,#D4869A)">
           <div class="carousel" id="car-morocco" data-cur="0">
             <div class="carousel-track">
@@ -794,7 +797,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         </div>
       </div>
 
-      <div class="pj-card big no-tilt reveal rd2" data-cat="doc international" style="order:4">
+      <div class="pj-card featured reveal rd2" data-cat="doc international" style="order:8">
         <div class="pj-vis" style="background:linear-gradient(135deg,#7A9E8A,#1B2A47)">
           <div class="carousel" id="car-water" data-cur="0">
             <div class="carousel-track">
@@ -814,7 +817,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         </div>
       </div>
 
-      <div class="pj-card reveal" id="proj-denmark" data-cat="journalism international" style="order:5">
+      <div class="pj-card reveal" id="proj-denmark" data-cat="journalism international" style="order:7">
         <div class="pj-vis">
           <div class="carousel carousel-big" id="car-denmark" data-cur="0" style="height:100%">
             <div class="carousel-track">
@@ -840,7 +843,7 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
         </div>
       </div>
 
-      <div class="pj-card reveal rd1" id="proj-iscpa" data-cat="journalism international" style="order:9">
+      <div class="pj-card reveal rd1" id="proj-iscpa" data-cat="journalism international" style="order:5">
         <div class="pj-vis" style="background:linear-gradient(135deg,#B8862E,#C4705A)">
           <div class="carousel" id="car-iscpa" data-cur="0">
             <div class="carousel-track">
@@ -964,7 +967,7 @@ fr:{n_about:"À propos",n_skills:"Compétences",n_exp:"Expérience",n_proj:"Proj
 };
 const phrases={nl:["Journalist & Full-Stack Developer","Business IT Enthousiasteling","Documentaire Producent","Software Developer","Digitale Strateeg"],en:["Journalist & Full-Stack Developer","Business IT Enthusiast","Documentary Producer","Software Developer","Digital Strategist"],fr:["Journaliste & Développeuse Full-Stack","Passionnée de Business IT","Productrice Documentaire","Développeuse Logicielle","Stratège Digitale"]};
 let lang="nl",pi=0,ci=0,del=false,tid=null;
-function setLang(l){lang=l;document.documentElement.lang=l;document.querySelectorAll(".lb").forEach(b=>b.classList.toggle("active",b.textContent===l.toUpperCase()));const t=T[l];document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n");if(t[k]!==undefined)el.innerHTML=t[k]});pi=0;ci=0;del=false;clearTimeout(tid);type();splitHeadings()}
+function setLang(l){lang=l;document.documentElement.lang=l;document.querySelectorAll(".lb").forEach(b=>b.classList.toggle("active",b.textContent===l.toUpperCase()));const t=T[l];document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n");if(t[k]!==undefined)el.innerHTML=t[k]});pi=0;ci=0;del=false;clearTimeout(tid);type();splitHeadings();if(window.redrawRadar)window.redrawRadar()}
 const splitObserver=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("split-ready");splitObserver.unobserve(x.target)}}),{threshold:0.15});
 function splitReveal(el){
   if(!el||!el.textContent.trim())return;
@@ -1019,11 +1022,11 @@ document.querySelectorAll(".ss-item").forEach(c=>sso.observe(c));
   var cx=SIZE/2,cy=SIZE/2,maxR=SIZE*0.27,labelOff=SIZE*0.05;
   var labelFont=SIZE<300?'bold 8px DM Sans, sans-serif':'bold 9.5px DM Sans, sans-serif';
   var skills=[
-    {label:'Leergierig',v:92},{label:'Communicatief',v:87},
-    {label:'Gepassioneerd',v:85},{label:'Nieuwsgierig',v:90},
-    {label:'Ambitieus',v:83},{label:'Snelle leercurve',v:91},
-    {label:'Strategisch',v:81},{label:'Punctueel',v:84},
-    {label:'Teamspeler',v:88},{label:'Leadership',v:78}
+    {key:'ss1',v:92},{key:'ss2',v:87},
+    {key:'ss3',v:85},{key:'ss4',v:90},
+    {key:'ss5',v:83},{key:'ss6',v:91},
+    {key:'ss7',v:81},{key:'ss8',v:84},
+    {key:'ss9',v:88},{key:'ss10',v:78}
   ];
   var n=skills.length;
   var prog=0,running=false;
@@ -1068,7 +1071,7 @@ document.querySelectorAll(".ss-item").forEach(c=>sso.observe(c));
       var xy=pt(i,maxR+labelOff);
       var dx=xy[0]-cx;
       ctx.textAlign=dx>8?'left':dx<-8?'right':'center';
-      ctx.fillText(s.label,xy[0],xy[1]);
+      ctx.fillText((T[lang]&&T[lang][s.key])||s.key,xy[0],xy[1]);
     });
   }
   function animate(){
@@ -1077,6 +1080,7 @@ document.querySelectorAll(".ss-item").forEach(c=>sso.observe(c));
     if(prog<1)requestAnimationFrame(animate);else running=false;
   }
   draw(0);
+  window.redrawRadar=function(){draw(prog)};
   var obs=new IntersectionObserver(function(e){
     if(e[0].isIntersecting&&!running&&prog===0){running=true;requestAnimationFrame(animate);obs.disconnect();}
   },{threshold:0.25});
