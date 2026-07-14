@@ -168,7 +168,16 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:300;display:flex;align-items:
 .carousel{position:relative;overflow:hidden;width:100%;height:100%;min-height:180px;background:var(--navy2)}
 .carousel-track{display:flex;height:100%;transition:transform 0.4s ease;will-change:transform}
 .carousel-slide{flex:0 0 100%;width:100%;height:100%;position:relative}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:filter .2s}
+.carousel-slide img:hover{filter:brightness(0.88)}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(10,8,15,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity .3s;padding:2rem}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:90vw;max-height:88vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);display:block}
+.lightbox-close{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,0.22)}
+@media(max-width:520px){.lightbox-close{top:12px;right:12px;width:38px;height:38px;font-size:22px}}
 .carousel-slide video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 .carousel-slide .car-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;color:rgba(253,250,246,0.3);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(27,42,71,0.65);backdrop-filter:blur(4px);color:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;z-index:10;display:flex;align-items:center;justify-content:center;transition:background 0.2s;line-height:1}
@@ -823,8 +832,8 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
           <div class="carousel carousel-big" id="car-denmark" data-cur="0" style="height:100%">
             <div class="carousel-track">
               <div class="carousel-slide"><img src="images/rep1-1.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 1"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep1-1.jpg</div></div>
-              <div class="carousel-slide"><img src="images/rep1-2.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 1b"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep1-2.jpg</div></div>
               <div class="carousel-slide"><img src="images/rep1-3.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 1c"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep1-3.jpg</div></div>
+              <div class="carousel-slide"><img src="images/rep1-2.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 1b"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep1-2.jpg</div></div>
               <div class="carousel-slide"><img src="images/rep2-1.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 2"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep2-1.jpg</div></div>
               <div class="carousel-slide"><img src="images/rep2-2.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 2b"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep2-2.jpg</div></div>
               <div class="carousel-slide"><img src="images/rep2-3.jpg" onerror="this.style.display='none'" alt="Denemarken reportage 2c"/><div class="car-fallback"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>rep2-3.jpg</div></div>
@@ -959,6 +968,11 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
   </svg>
   <svg class="btt-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" alt=""/>
+</div>
 
 <script>
 const T={
@@ -1153,6 +1167,29 @@ document.querySelectorAll(".ss-item").forEach(c=>sso.observe(c));
     requestAnimationFrame(step);
   }),{threshold:0.5});
   document.querySelectorAll(".st-n").forEach(b=>countObs.observe(b));
+})();
+
+// Lightbox for enlarging carousel photos
+(function(){
+  const lightbox=document.getElementById("lightbox");
+  const lbImg=document.getElementById("lightboxImg");
+  if(!lightbox||!lbImg)return;
+  window.closeLightbox=function(){
+    lightbox.classList.remove("open");
+    document.body.style.overflow="";
+    lbImg.src="";
+  };
+  document.addEventListener("click",function(e){
+    const img=e.target.closest(".carousel-slide img");
+    if(img){
+      lbImg.src=img.currentSrc||img.src;
+      lbImg.alt=img.alt||"";
+      lightbox.classList.add("open");
+      document.body.style.overflow="hidden";
+    }
+  });
+  lightbox.addEventListener("click",function(e){if(e.target===lightbox)closeLightbox()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeLightbox()});
 })();
 
 // Mobile nav burger toggle
